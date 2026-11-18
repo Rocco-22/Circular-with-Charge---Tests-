@@ -1,0 +1,35 @@
+
+# 2026-07-21
+
+ Compile:
+ make a.out b.out
+
+ Two Programs.
+ a.out: The 2D-Poisson Solver
+        The Inputdata are:
+           ./Gitterfuellung: The Description of the Materialfilling.
+                             This is written by the GdfidL-Solver.
+                             An Inputfile which writes such File is:
+                                BlaBla.gdf
+                                gd1 < BlaBla.gdf
+           ./EpsData: Specifies the EprR of the used Materials.
+           ./ChargeData: Specifies the Charges.
+	SpecifyPhiAtxy.f90: Specifies the Phi at the Boundary between
+                            Metal and Dielectrics.
+ Run the Solver.
+     ./a.out
+ The Result is in two Files.
+     ./Potential.mtv: This is a MTV-File which describes a Plot of the
+                      computed Potential.
+                      Look at that Data via
+                          mymtv2 Potential.mtv
+     ./PhiData: The computed Potential in a human readable Format.
+
+ The main-Sourcecode is 'ReadInputDataAndSolve.f90'.
+ -----------
+ b.out: A Program which reads the Potential in 'PhiData'.
+     This Program also writes the Potential as a MTV-File.
+     This Program is given as an Example for a Program which reads
+     the Data in 'PhiData'.
+ The main-Sourcecode is 'ReadPhiData.f90'.
+

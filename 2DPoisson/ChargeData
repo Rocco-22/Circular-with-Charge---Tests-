@@ -1,0 +1,4 @@
+ 1    # Nr of Charges, may be zero.
+ 0.0 0.0  1.234   # xPosition, yPosition, Charge of the first LineCharge
+ 3e-3  3e-3  1.234   # xPosition, yPosition, Charge of the second LineCharge
+ 4e-3 -4e-3 -1.234   # xPosition, yPosition, Charge of the third LineCharge

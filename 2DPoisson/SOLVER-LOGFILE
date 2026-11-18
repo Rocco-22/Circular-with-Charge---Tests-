@@ -1,0 +1,75 @@
+ 
+ 
+ 
+ 
+)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+###############################################################
+-general
+   outfile= /home/rmercadante/tmp/CircularPipeGFTest
+   scratch= /tmp/rmercadante-pvm-scratch-CircularPipeGFTest
+   text()= stpsze= 166.66666667e-6, CircularPipeGFTest
+   text()= sigma= 5.0e-3, sigma/stpsze= 30.0
+   text()= charge=CHARGE, RDV
+   text()= offset=0
+return
+##############################################################
+-mesh
+ pxlow=-21.0e-3,  pxhigh=21.0e-3      #xlow, xhigh
+ pylow=-21.0e-3,  pyhigh=21.0e-3      #ylow, yhigh
+ pzlow=-175.0e-6,  pzhigh=175.0e-6      #zlow, zhigh
+ cxlow=el,     cxhigh=el        #xboundary
+ cylow=el,     cyhigh=el        #yboundary
+ czlow=el,     czhigh=el        #zboundary
+ 
+ spacing=166.66666667e-6
+#########################################################################
+-material
+ material = 4, type=electric
+-brick
+  material=4
+     volume= (-100000,100000, -100000,100000, -100000,100000)
+  doit
+################################################################
+-gccylinder
+ 
+material = 0
+whichcells = all
+ 
+radius = 20.0e-3
+length = 3.33333333e-3
+origin = (0,0,-1.66666667e-3)
+direction = (0,0,1)
+doit
+#################################################################
+-volumeplot
+doit
+#################################################################
+# Wake-Parameters..
+ 
+-fdtd
+  -ports
+    name    = lower_end, plane=zlow,   modes=1, npml=20, doit
+    name    = upper_end, plane=zhigh,  modes=1, npml=20, doit
+ 
+ 
+-lcharge
+    xpos    = 0
+    ypos    = 0
+    charge  = 1e-12
+    sigma   = 5.0e-3
+    shigh   = 1
+    ds      = auto
+    showdata= no
+return
+ 
+ -base, __mdoit, end

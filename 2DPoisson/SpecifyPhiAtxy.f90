@@ -6,6 +6,6 @@
  REAL(KIND= idknd), INTENT(IN) :: x, y
  REAL(KIND= idknd), INTENT(OUT) :: PhiAtxy
 
-    PhiAtxy= 5.d0
+    PhiAtxy= 3.d0
 
  END SUBROUTINE SpecifyPhiAtxy

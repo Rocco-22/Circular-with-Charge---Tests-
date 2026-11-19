@@ -40,7 +40,7 @@ contains
         do i = 0,Nx-1
             dyPhi(i,0) = (Phi(i,1)-Phi(i,0))/h
             do j = 1,Ny-2
-                dyPhi(i,j) = (Phi(i,j+1)-Phi(i,j+1))/(2.d0*h)
+                dyPhi(i,j) = (Phi(i,j+1)-Phi(i,j-1))/(2.d0*h)
             end do
             dyPhi(i,Ny-1) = (Phi(i,Ny-1)-Phi(i,Ny-2))/h
         end do

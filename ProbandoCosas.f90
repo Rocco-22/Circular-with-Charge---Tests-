@@ -14,11 +14,13 @@ program ProbandoCosas
 
     call ReadMaterial(Xg,Yg,Material,Metal,GridFile,EpsFile)
 
+    
+
+    call partialx(X,Y,Phi,dxPhi,Metal) 
+
+    call partialy(X,Y,Phi,dyPhi,Metal) 
+
     call WriteOutputMatrix(X,Y,Phi,'PhiMatrix.dat')
-
-    call partialx(X,Y,Phi,dxPhi) 
-
-    call partialy(X,Y,Phi,dyPhi) 
 
     call WriteOutputMatrix(X,Y,dxPhi,'dxPhiMatrix.dat')
 

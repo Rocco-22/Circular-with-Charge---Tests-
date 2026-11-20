@@ -30,7 +30,7 @@ program ProbandoCosas
 
     do i=LBOUND(RealMetal,1),UBOUND(RealMetal,1)
         do j=LBOUND(RealMetal,2),UBOUND(RealMetal,2)
-            if (.NOT. (Metal(i,j))) then
+            if (Metal(i,j)) then
                 RealMetal(i,j) = 1
             else
                 RealMetal(i,j) = 0 

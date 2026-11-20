@@ -369,26 +369,26 @@
  END SUBROUTINE BuildAndSolve2DPoisson
 !***********
  SUBROUTINE ReadChargeData
- USE InputData, ONLY : &
-        NrOfCharges, xOfCharge, yOfCharge, ChargeOfCharge
+   USE InputData, ONLY : &
+         NrOfCharges, xOfCharge, yOfCharge, ChargeOfCharge
 
- IMPLICIT NONE
- CHARACTER(LEN= *), PARAMETER :: MyName= 'ReadChargeData'
+   IMPLICIT NONE
+   CHARACTER(LEN= *), PARAMETER :: MyName= 'ReadChargeData'
 
- INTEGER :: i11, i
+   INTEGER :: i11, i
 
-    i11= 11
-    OPEN(UNIT= i11, &
-         FILE= 'ChargeData', &
-       STATUS= 'OLD' )
+      i11= 11
+      OPEN(UNIT= i11, &
+            FILE= 'ChargeData', &
+         STATUS= 'OLD' )
 
-    READ (UNIT= i11, FMT= *) NrOfCharges
-    DO i= 1, NrOfCharges
-       READ (UNIT= i11, FMT= *) xOfCharge(i), yOfCharge(i), ChargeOfCharge(i)
-    END DO
+      READ (UNIT= i11, FMT= *) NrOfCharges
+      DO i= 1, NrOfCharges
+         READ (UNIT= i11, FMT= *) xOfCharge(i), yOfCharge(i), ChargeOfCharge(i)
+      END DO
 
-!! write (*,*) MyName, ': before CLOSE.'
-    CLOSE( UNIT= i11, STATUS= 'KEEP')
+   !! write (*,*) MyName, ': before CLOSE.'
+      CLOSE( UNIT= i11, STATUS= 'KEEP')
 
  END SUBROUTINE ReadChargeData
 !***********

@@ -2,23 +2,51 @@ program ProbandoCosas
     use FileTools
     use Derivatives
     implicit none
-    character(len=*), parameter :: DataFile='PhiData'
-    double precision, allocatable, dimension(:) :: X,Y
+    character(len=*), parameter :: PhiFile='PhiData',GridFile='Gitterfuellung',EpsFile='EpsData'
+    double precision, allocatable, dimension(:) :: X,Y,Xg,Yg
     double precision, allocatable, dimension(:,:) :: Phi,dxPhi,dyPhi
+    integer, allocatable, dimension(:,:) :: Material
+    logical, allocatable, dimension(:,:) :: Metal
+    double precision, allocatable, dimension(:,:) :: RealMetal
+    integer :: i,j
 
-    call MakePhiXY(X,Y,Phi,DataFile)
+    call ReadPhiXY(X,Y,Phi,PhiFile)
 
-    call OutputMatrix(X,Y,Phi,'PhiMatrix.dat')
+    call ReadMaterial(Xg,Yg,Material,Metal,GridFile,EpsFile)
+
+    call WriteOutputMatrix(X,Y,Phi,'PhiMatrix.dat')
 
     call partialx(X,Y,Phi,dxPhi) 
 
     call partialy(X,Y,Phi,dyPhi) 
 
-    call OutputMatrix(X,Y,dxPhi,'dxPhiMatrix.dat')
+    call WriteOutputMatrix(X,Y,dxPhi,'dxPhiMatrix.dat')
 
-    call OutputMatrix(X,Y,dyPhi,'dyPhiMatrix.dat')
+    call WriteOutputMatrix(X,Y,dyPhi,'dyPhiMatrix.dat')
+
+    call WriteOutputMatrix(Xg,Yg,dble(Material),'MaterialMatrix.dat')
+
+    allocate(RealMetal(LBOUND(Metal,1):UBOUND(Metal,1),LBOUND(Metal,2):UBOUND(Metal,2)))
+
+    do i=LBOUND(RealMetal,1),UBOUND(RealMetal,1)
+        do j=LBOUND(RealMetal,2),UBOUND(RealMetal,2)
+            if (.NOT. (Metal(i,j))) then
+                RealMetal(i,j) = 1
+            else
+                RealMetal(i,j) = 0 
+            end if
+        end do
+    end do
+
+    call WriteOutputMatrix(Xg,Yg,RealMetal,'MetalMatrix.dat')
+
+    print   *,'Finished printing matrices to files: PhiMatrix.dat, dxPhiMatrix.dat, dyPhiMatrix.dat, MaterialMatrix.dat, MetalMatrix.dat'
+    
 
 end program ProbandoCosas
+
+
+
 
 
 

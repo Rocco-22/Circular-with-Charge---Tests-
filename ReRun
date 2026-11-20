@@ -1,0 +1,10 @@
+gfortran FileTools.f90  Derivatives.f90 ProbandoCosas.f90
+for d in circular20mm*
+    do  cp a.out $d
+done
+for d in circular20mm* 
+    do  cd $d
+    ./a.out
+    echo "Done with $d"
+    cd ..
+done

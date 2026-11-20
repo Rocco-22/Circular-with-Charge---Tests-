@@ -2,13 +2,12 @@ module Derivatives
     implicit none
     
 contains
-    
+
     subroutine partialx(X,Y,Phi,dxPhi)
-        implicit none
         integer :: i,j,Nx,Ny
         double precision :: h
-        double precision, allocatable, dimension(:) :: X,Y
-        double precision, allocatable, dimension(:,:) :: Phi,dxPhi
+        double precision, intent(in) :: X(0:),Y(0:),Phi(0:,0:)
+        double precision, allocatable, intent(out) :: dxPhi(:,:)
         
         Nx = size(X)
         Ny = size(Y)
@@ -26,11 +25,10 @@ contains
     end subroutine partialx
 
     subroutine partialy(X,Y,Phi,dyPhi)
-        implicit none
         integer :: i,j,Nx,Ny
         double precision :: h
-        double precision, allocatable, dimension(:) :: X,Y
-        double precision, allocatable, dimension(:,:) :: Phi,dyPhi
+        double precision, intent(in) :: X(0:),Y(0:),Phi(0:,0:)
+        double precision, allocatable, intent(out) :: dyPhi(:,:)
 
         Nx = size(X)
         Ny = size(Y)

@@ -1,0 +1,216 @@
+ 
+ ### I am defining: "@version" to Value: "260219"
+ 
+ ### I am defining: "@pi" to Value: "3.14159265358979323846264338327950"
+ 
+ ### I am defining: "@clight" to Value: "299792458"
+ 
+ ### I am defining: "INF" to Value: "1e30"
+ 
+ ### I am defining: "BIG" to Value: "1e30"
+ /sys/devices/system/node/node0/cpulist: 0-7
+ /sys/devices/system/node/node0/distance: 10
+  CPUInfo: Distance: 10
+ 
+ CPUInfo: Analysis of "/proc/cpuinfo" gives:
+ CPUInfo: CoreID(1:8)  :    0   0   0   0   0   0   0   0
+ CPUInfo: PhysID(1:8)  :    0   1   2   3   4   5   6   7
+ CPUInfo: Number of Cores           :   8
+ CPUInfo: Number of Sockets         :   8
+ CPUInfo: Number of Gangs per Socket:   1
+ CPUInfo: iCoreToNode(1:8):      0   0   0   0   0   0   0   0
+ CPUInfo: The Gangsters of the 1.st Gang are:    0   1   2   3   4   5   6
+                                                 7
+ # VshzpnIb 260219
+ ##################
+ # Start Date : 25/11/2026
+ # Start Time : 11:49:26
+ ##################
+ I was compiled on Tue Mar  3 20:20:32 GMT 2026 on Host wb027c
+ This Host is: claaccelerators02
+ 
+ ### I am defining: "@nodes" to Value: "1"
+ ##############################################################################
+ # Flags: nomenu, prompt, message,                                            #
+ ##############################################################################
+ # gdfidl (64) (V 4.3) (compiled Tue Mar  3 20:20:32 GMT 2026 on Host wb027c) #
+ #  VshzpnIb 260219                                                           #
+ ##############################################################################
+ # -general        -- Output File, Annotations.                               #
+ # -mesh           -- Bounding Box, Spacing, fixed Meshplanes,                #
+ #                 -- Boundary Conditions.                                    #
+ # -material       -- Material Properties.                                    #
+ # -lgeometry      -- Load a previously used Geometry.                        #
+ # ***** Geometric primitives ****                                            #
+ # -brick          -- Simple rectangular Brick.                               #
+ # -gccylinder     -- Circular Cylinder in general Direction.                 #
+ # -ggcylinder     -- General Cylinder in general Direction.                  #
+ # -gbor           -- Body of Revolution in general Direction.                #
+ # -stlfile        -- CAD Import via STL-File.                                #
+ # -geofunction    -- Analytic Function.                                      #
+ # -transform      -- Rotations etc                                           #
+ #     ( -translate, -rotate )                                                #
+ # ***** Solver Sections ****                                                 #
+ #  -eigenvalues   -- Resonant Fields                                         #
+ #     ( -ports, -linitialfields )                                            #
+ #  -fdtd          -- Time dependent Fields                                   #
+ #     (-time, -ports, -pexcitation, -lcharges, -voltages, -dipole, -clouds   #
+ #      -storefieldsat, -linitialfields, -fexport, -fmonitor, -smonitor       #
+ #      -pmonitor, -windowwake, -decaytime )                                  #
+ #  -magnetostatic -- Magnetostatic Fields (rudimentary)                      #
+ #     ( -lcurrent )                                                          #
+ # *******                                                                    #
+ #  -volumeplot    -- Displays Mesh Filling.                                  #
+ #  -cutplot       -- Displays Mesh Filling in a single Plane                 #
+ # ***** Miscellanea ******                                                   #
+ #  -debug         -- Specify Debug Levels                                    #
+ #                                                                            #
+ ##############################################################################
+ # ?, end, help, __mdoit, __hwinfo                                            #
+ ##############################################################################
+ ## I did not find a Profile "./gdfidl.solver-profile".
+ ## This is not an Error.
+ gd1>  
+ ### I am defining: "FILE" to Value: "CircularPipeGFTest"
+ --> # was: "define(FILE, CircularPipeGFTest)"
+ gd1>  
+ ### I am redefining: "INF" to Value: "100000"
+ --> # was: "define(INF, 100000)"
+ gd1>  gd1>  
+ ### I am defining: "SIGMA" to Value: "5.0e-3"
+ --> # was: "define(SIGMA, 5e-3)"
+ gd1>  
+ ### I am defining: "STPSZE" to Value: "50.0e-6"
+-- processed Line:--> ")"
+ --> # was: "define(STPSZE, eval(SIGMA/100)))"
+ gd1>  
+ ### I am defining: "TRAILER" to Value: "1"
+ --> # was: "define(TRAILER, eval(200*SIGMA))"
+ gd1>  
+ ### I am defining: "OFFSET" to Value: "0"
+ --> # was: "define(OFFSET,0e-3)"
+ gd1>  gd1>  
+ ### I am defining: "RAD" to Value: "20.0e-3"
+ --> # was: "define(RAD,20e-3)"
+ gd1>  gd1>  
+ ### I am defining: "XLOW" to Value: "-21.0e-3"
+ 
+ ### I am defining: "XHIGH" to Value: "21.0e-3"
+ --> # was: "define(XLOW, eval(-1.05*RAD))            define(XHIGH, eval(1.05*RAD))"
+ gd1>  
+ ### I am defining: "YLOW" to Value: "-21.0e-3"
+ 
+ ### I am defining: "YHIGH" to Value: "21.0e-3"
+ --> # was: "define(YLOW, eval(-1.05*RAD))            define(YHIGH, eval(1.05*RAD) )"
+ gd1>  
+ ### I am defining: "ZLOW" to Value: "-52.5e-6"
+ 
+ ### I am defining: "ZHIGH" to Value: "52.5e-6"
+ --> # was: "define(ZLOW, eval(-1.05*STPSZE))           define(ZHIGH, eval(1.05*STPSZE))"
+ gd1>  gd1>  gd1> -- processed Line:--> "###############################################################"
+ gd1> -- processed Line:--> "-general"
+ general> -- processed Line:--> "   outfile= /home/rmercadante/tmp/CircularPipeGFTest"
+ --> # was: "   outfile= /home/rmercadante/tmp/FILE"
+ general> -- processed Line:--> "   scratch= /tmp/rmercadante-pvm-scratch-CircularPipeGFTest"
+ --> # was: "   scratch= /tmp/rmercadante-pvm-scratch-FILE"
+ general> -- processed Line:--> "   text()= stpsze= 50.0e-6, CircularPipeGFTest"
+ --> # was: "   text()= stpsze= STPSZE, FILE"
+ general> -- processed Line:--> "   text()= sigma= 5.0e-3, sigma/stpsze= 100.0"
+ --> # was: "   text()= sigma= SIGMA, sigma/stpsze= eval(SIGMA/STPSZE)"
+ general> -- processed Line:--> "   text()= charge=CHARGE, RDV"
+ general> -- processed Line:--> "   text()= offset=0"
+ --> # was: "   text()= offset=OFFSET	"
+ general> -- processed Line:--> "return"
+ 
+ ### I am defining: "@nrofthreads" to Value: "8"
+ gd1> -- processed Line:--> "##############################################################"
+ gd1> -- processed Line:--> "-mesh"
+ mesh> -- processed Line:--> " pxlow=-21.0e-3,  pxhigh=21.0e-3      #xlow, xhigh"
+ --> # was: " pxlow=XLOW,  pxhigh=XHIGH      #xlow, xhigh"
+ mesh> -- processed Line:--> " pylow=-21.0e-3,  pyhigh=21.0e-3      #ylow, yhigh"
+ --> # was: " pylow=YLOW,  pyhigh=YHIGH      #ylow, yhigh"
+ mesh> -- processed Line:--> " pzlow=-52.5e-6,  pzhigh=52.5e-6      #zlow, zhigh"
+ --> # was: " pzlow=ZLOW,  pzhigh=ZHIGH      #zlow, zhigh"
+ mesh> -- processed Line:--> " cxlow=el,     cxhigh=el        #xboundary"
+ mesh> -- processed Line:--> " cylow=el,     cyhigh=el        #yboundary"
+ mesh> -- processed Line:--> " czlow=el,     czhigh=el        #zboundary"
+ mesh>  mesh> -- processed Line:--> " spacing=50.0e-6"
+ --> # was: " spacing=eval(STPSZE)"
+ mesh> -- processed Line:--> "#########################################################################"
+ mesh> -- processed Line:--> "-material"
+ material> -- processed Line:--> " material = 4, type=electric"
+ material> -- processed Line:--> "-brick"
+ brick> -- processed Line:--> "  material=4"
+ brick> -- processed Line:--> "     volume= (-100000,100000, -100000,100000, -100000,100000)"
+ --> # was: "     volume= (-INF,INF, -INF,INF, -INF,INF)"
+ brick> -- processed Line:--> "  doit"
+ brick> -- processed Line:--> "################################################################"
+ brick> -- processed Line:--> "-gccylinder"
+ gccylinder>  gccylinder> -- processed Line:--> "material = 0"
+ gccylinder> -- processed Line:--> "whichcells = all"
+ gccylinder>  gccylinder> -- processed Line:--> "radius = 20.0e-3"
+ --> # was: "radius = RAD"
+ gccylinder> -- processed Line:--> "length = 1.0e-3"
+ --> # was: "length = eval(20*STPSZE)"
+ gccylinder> -- processed Line:--> "origin = (0,0,-500.0e-6)"
+ --> # was: "origin = (0,0,eval(-10*STPSZE))"
+ gccylinder> -- processed Line:--> "direction = (0,0,1)"
+ gccylinder> -- processed Line:--> "doit"
+ gccylinder> -- processed Line:--> "#################################################################"
+ gccylinder> -- processed Line:--> "-volumeplot"
+ volumeplot> -- processed Line:--> "doit"
+ # I am checking the Mesh Settings.
+ #++ : Section -mesh: "xminspacing is undefined".
+ #++ : I will use "xspacing/10" instead.
+ #++ : Section -mesh: "yminspacing is undefined".
+ #++ : I will use "yspacing/10" instead.
+ #++ : Section -mesh: "zminspacing is undefined".
+ #++ : I will use "zspacing/10" instead.
+ Mesher:
+   Number of Bricks     :     1
+   Number of GCCylinders:     1
+   Number of GGCylinders:     0
+   Number of GBoRs      :     0
+   Number of STL-Files  :     0
+   nx :   840, ny:   840, nz:     2
+   nx*ny*nz: 1.4112e6
+ Mesher: The first Pass. I am computing the Materials at the Gridpoints.
+ 
+ *
+ Mesher: needed 0.7599 CPU Seconds
+ Mesher: needed 1 Wall Clock Seconds
+ *
+ Mesher: The second Pass. I am computing the Material Boundaries at the Edges.
+ 
+ *
+ Mesher: The third Pass. For each Cell, I decide which Kind of Cell to take.
+ 
+ Mesher: cmd: gd1.3dplot -nTasks=1 -3d /tmp/rmercadante-pvm-scratch-CircularPipeGFTest-Material-Boundaries.1.gld -geometry 1024x768+410+40 -noclip &
+ volumeplot> -- processed Line:--> "#################################################################"
+ volumeplot> -- processed Line:--> "# Wake-Parameters.."
+ volumeplot>  volumeplot> -- processed Line:--> "-fdtd"
+ -fdtd> -- processed Line:--> "  -ports"
+ -ports> -- processed Line:--> "    name    = lower_end, plane=zlow,   modes=1, npml=20, doit"
+ -ports> -- processed Line:--> "    name    = upper_end, plane=zhigh,  modes=1, npml=20, doit"
+ -ports>  -ports>  -ports> -- processed Line:--> "-lcharge"
+ lcharges> -- processed Line:--> "    xpos    = 0"
+ --> # was: "    xpos    = eval(OFFSET)"
+ lcharges> -- processed Line:--> "    ypos    = 0"
+ lcharges> -- processed Line:--> "    charge  = 1e-12"
+ lcharges> -- processed Line:--> "    sigma   = 5.0e-3"
+ --> # was: "    sigma   = SIGMA"
+ lcharges> -- processed Line:--> "    shigh   = 1"
+ --> # was: "    shigh   = eval(TRAILER)"
+ lcharges> -- processed Line:--> "    ds      = auto"
+ lcharges> -- processed Line:--> "    showdata= no"
+ lcharges> -- processed Line:--> "return"
+ -fdtd>  -fdtd> -- processed Line:--> " -base, __mdoit, end"
+ # I am generating the mesh.
+ # I am checking the Mesh Settings.
+ #++ : Section -mesh: "xminspacing is undefined".
+ #++ : I will use "xspacing/10" instead.
+ #++ : Section -mesh: "yminspacing is undefined".
+ #++ : I will use "yspacing/10" instead.
+ #++ : Section -mesh: "zminspacing is undefined".
+ #++ : I will use "zspacing/10" instead.
+ stop "end" found

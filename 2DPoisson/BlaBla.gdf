@@ -1,0 +1,87 @@
+define(FILE, CircularPipeGFTest)
+define(INF, 100000)
+
+define(SIGMA, 5e-3)
+define(STPSZE, eval(SIGMA/100)))
+define(TRAILER, eval(200*SIGMA))
+define(OFFSET,0e-3)
+
+define(RAD,20e-3)
+
+define(XLOW, eval(-1.05*RAD))            define(XHIGH, eval(1.05*RAD))
+define(YLOW, eval(-1.05*RAD))            define(YHIGH, eval(1.05*RAD) )
+define(ZLOW, eval(-1.05*STPSZE))           define(ZHIGH, eval(1.05*STPSZE))
+
+
+###############################################################
+-general
+   outfile= /home/rmercadante/tmp/FILE
+   scratch= /tmp/rmercadante-pvm-scratch-FILE
+   text()= stpsze= STPSZE, FILE
+   text()= sigma= SIGMA, sigma/stpsze= eval(SIGMA/STPSZE)
+   text()= charge=CHARGE, RDV
+   text()= offset=OFFSET	
+return
+##############################################################         
+-mesh
+ pxlow=XLOW,  pxhigh=XHIGH      #xlow, xhigh
+ pylow=YLOW,  pyhigh=YHIGH      #ylow, yhigh
+ pzlow=ZLOW,  pzhigh=ZHIGH      #zlow, zhigh   
+ cxlow=el,     cxhigh=el        #xboundary
+ cylow=el,     cyhigh=el        #yboundary
+ czlow=el,     czhigh=el        #zboundary
+
+ spacing=eval(STPSZE) 
+#########################################################################
+-material
+ material = 4, type=electric
+-brick
+  material=4
+     volume= (-INF,INF, -INF,INF, -INF,INF)
+  doit
+################################################################
+-gccylinder
+
+material = 0
+whichcells = all
+
+radius = RAD
+length = eval(20*STPSZE)
+origin = (0,0,eval(-10*STPSZE))
+direction = (0,0,1)
+doit
+#################################################################
+-volumeplot
+doit
+#################################################################
+# Wake-Parameters..
+
+-fdtd
+  -ports
+    name    = lower_end, plane=zlow,   modes=1, npml=20, doit
+    name    = upper_end, plane=zhigh,  modes=1, npml=20, doit
+
+
+-lcharge
+    xpos    = eval(OFFSET)
+    ypos    = 0
+    charge  = 1e-12
+    sigma   = SIGMA
+    shigh   = eval(TRAILER)
+    ds      = auto
+    showdata= no
+return
+
+ -base, __mdoit, end
+
+doit
+
+
+
+
+
+
+
+
+
+
